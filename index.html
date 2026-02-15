@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハローワーク松山</title>
+<style type="text/css">
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto; /* 中央寄せに修正 */
+    }
+
+    /* --- スライドショー --- */
+    .slideshow-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+    }
+    .slideshow-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        animation: fade 6s infinite;
+    }
+    .slideshow-container img:nth-child(1) { animation-delay: 0s; }
+    .slideshow-container img:nth-child(2) { animation-delay: 3s; }
+    @keyframes fade {
+        0% { opacity: 0; }
+        10% { opacity: 1; }
+        40% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 0; }
+    }
+    @media (max-width: 600px) {
+        .slideshow-container { aspect-ratio: 4 / 3; }
+    }
+
+    /* --- アコーディオン --- */
+    .accordion {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
+    .accordion-header {
+        padding: 15px 20px;
+        cursor: pointer;
+        background-color: #e3eaf5;
+        font-weight: bold;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .accordion-header:hover { background-color: #d0d9ec; }
+    .accordion-content {
+        display: none;
+        padding: 10px 20px;
+        background-color: #fff;
+        font-size: 15px;
+    }
+    
+    /* --- お知らせ・イベント情報BOX --- */
+    .info-section {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-bottom: 24px;
+        max-width: 600px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .info-title {
+        color: #ffffff;
+        font-weight: bold;
+        padding: 12px 16px;
+        border-bottom: 2px solid #ffffff;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        font-size: 18px;
+    }
+    .event-title { background-color: #0078D7; }
+    .stats-title { background-color: #228B22; }
+    .info-list {
+        list-style: none;
+        padding: 16px;
+        margin: 0;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    .info-list li {
+        margin-bottom: 16px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 8px;
+    }
+    .date { font-weight: bold; color: #0078D7; }
+    .description { margin-top: 4px; color: #333; }
+
+    /* --- ボタン --- */
+    .button-36 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* グリッド内で幅いっぱいに */
+        margin: 0 auto;
+        /* max-widthは親要素に任せるため一旦解除、またはグリッドに合わせて調整 */
+        box-sizing: border-box;
+        padding: .8em 1em;
+        border: 1px solid #2589d0;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #2589d0;
+        font-size: 1em;
+        text-align: center;
+        text-decoration: none; /* リンクの下線を消す */
+    }
+    .button-36:hover {
+        border: none;
+        background-color: #2589d0;
+        color: #fff;
+        font-weight: 600;
+    }
+    
+    /* 文字装飾用クラスの簡易定義（元コードになかったため補完） */
+    .m-txt--notice { display: block; width: 100%; }
+    .m-txtS { margin-bottom: 10px; } 
+
+    /* ★★★ ここが今回の追加修正ポイント（2列表示用） ★★★ */
+    .menu-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* スマホ：1列 */
+        gap: 10px; /* ボタン間の隙間 */
+    }
+
+    /* PCサイズ（600px以上）の時 */
+    @media (min-width: 600px) {
+        .menu-grid {
+            grid-template-columns: 1fr 1fr; /* PC：2列 */
+        }
+    }
+    /* ★★★ 修正ここまで ★★★ */
+
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <img alt="6" src="[[[id=002415841]]]" />
+    <img alt="6" src="[[[id=002415844]]]" />
+</div>
+ 
+<div class="container">
+    <div class="accordion">
+        <div class="accordion-header">ご利用案内<br /><span class="toggle">＋</span></div>
+        <div class="accordion-content">　　　　
+            <ul class="m-list">
+                <li><em>1）ご利用時間</em><br />◇ハローワーク松山...（省略）...</li>
+                <li><em>2）求職申込・職業相談...</em><br />...</li>
+                <li><em>3）駐車場について</em><br />...</li>
+            </ul>
+        </div>
+    </div>
+
+    <h4 class="m-hdgLv4__hdg">
+        <strong class="m-txt--notice">ハローワーク松山をご利用の方は、<br />左折入庫・左折出庫にご協力をお願いいたします。</strong><br /><br /><br />
+        ハローワーク再就職支援メニュー
+    </h4>
+
+    <div class="menu-grid">
+        
+        <p class="m-txtS" style="margin:0;">
+            <strong class="m-txt--notice">
+                <a class="button-36" href="https://www.hellowork.mhlw.go.jp/" target="_blank">
+                    ハローワークインターネットサービス<br />（求人検索やマイページのログインに！）
+                </a>
+            </strong>
+        </p>
+
+        <p class="m-txtS" style="margin:0;">
+            <strong class="m-txt--notice">
+                <a class="button-36" href="https://snaokikurogane-commits.github.io/matsuyama-hw-search/area.html" target="_blank">
+                    簡単求人検索<br />（スマホでも簡単に求人検索！）
+                </a>
+            </strong>
+        </p>
+
+        <p class="m-txtS" style="margin:0;">
+            <strong class="m-txt--notice">
+                <a class="button-36" href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/hw/matsuyama.html/" target="_blank">
+                    ぽちっとジョブミル<br />（求人検索をもっと簡単に！）
+                </a>
+            </strong>
+        </p>
+
+        <p class="m-txtS" style="margin:0;">
+            <strong class="m-txt--notice">
+                <a class="button-36" href="https://shigoto.mhlw.go.jp/User" target="_blank">
+                    job tag<br />（適職診断や職種研究に！）
+                </a>
+            </strong>
+        </p>
+
+        <p class="m-txtS" style="margin:0;">
+            <strong class="m-txt--notice">
+                <a class="button-36" href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/hourei_seido_tetsuzuki/shokugyou_kunren/2016011401_00014.html/" target="_blank">
+                    ハロートレーニング（職業訓練）<br />（職業訓練に興味がある方はこちら！）
+                </a>
+            </strong>
+        </p>
+
+        <p class="m-txtS" style="margin:0;">
+            <strong class="m-txt--notice">
+                <a class="button-36" href="[[[id=002546297]]]" target="_blank">
+                    イベントカレンダー<br />（ハローワーク松山　六軒家）
+                </a>
+            </strong>
+        </p>
+
+        <p class="m-txtS" style="margin:0;">
+            <strong class="m-txt--notice">
+                <a class="button-36" href="[[[id=002544676]]]" target="_blank">
+                    イベントカレンダー<br />（ハローワークプラザ松山　千舟町）
+                </a>
+            </strong>
+        </p>
+    </div>
+    <h4 class="m-hdgLv4__hdg">（公式LINEのご案内）</h4>
+    <p class="m-txtXL">○<em><a href="[[[id=002441016]]]" target="_blank">ハローワーク松山</a></em><br />
+    <a href="https://lin.ee/gdEBP5W7"><img alt="友だち追加" border="0" height="36" src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" /></a></p>
+    <div>　　<em>ハローワーク松山の<br />　　　　LINE登録はこちらから♪</em></div>
+
+    <p class="m-txtXL">○<em><a href="[[[id=002441166]]]" target="_blank">ハローワークプラザ松山</a></em><br />
+    <a href="https://lin.ee/AicErPM"><img alt="友だち追加" border="0" height="36" src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" /></a></p>
+    　　<em>ハローワークプラザ松山の<br />　　　　LINE登録はこちらから♪</em>
+
+    <h2 class="m-hdgLv2__hdg" style="font-size: 29.712px;"><img alt="" src="[[[id=002441068]]]" style="width: 450px; height: 300px;" /></h2>
+
+    <h2 class="m-hdgLv2__hdg">ハローワーク松山・ハローワークプラザ松山からのご案内</h2>
+    
+    <div class="info-section">
+        <div class="info-title stats-title">お知らせ</div>
+        <ul class="info-list">
+            <li><div class="date">2026年2月12日</div><div class="description">イベント情報を更新しました。</div></li>
+            <li><div class="date">2026年2月1日</div><div class="description">ハローワーク松山・ハローワークプラザ松山のイベントカレンダー（2月分）を掲載しました。</div></li>
+            </ul>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title event-title">イベント情報</div>
+        <ul class="info-list">
+            <li><p class="m-txtM"><span style="color: rgb(0, 120, 215); font-weight: 700;">2026年2月12日　</span><br /><a href="[[[id=002558176]]]" target="_blank">【2/26.27】就職フェアを開催します！（ハローワーク松山）</a></p></li>
+            </ul>
+    </div>
+
+    <h3 class="m-hdgLv3__hdg">☎お問い合わせ先</h3>
+    <div>
+        <p class="m-txtXL"><em>ハローワーク松山...</em><br />（省略）</p>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const toggle = header.querySelector('.toggle');
+        // 他のアコーディオンを閉じる処理（必要であれば）
+        /*
+        document.querySelectorAll('.accordion-content').forEach(c => {
+            if (c !== content) {
+                c.style.display = 'none';
+                c.previousElementSibling.querySelector('.toggle').textContent = '＋';
+            }
+        });
+        */
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            toggle.textContent = '＋';
+        } else {
+            content.style.display = 'block';
+            toggle.textContent = '－';
+        }
+    });
+});
+</script>
+
+</body>
+</html>
