@@ -1,0 +1,522 @@
+<style type="text/css">
+/* --- 1. 全体設定・リセット --- */
+#hw-matsuyama-top {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    color: #333333;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #ffffff;
+}
+#hw-matsuyama-top a { text-decoration: none; }
+#hw-matsuyama-top *, #hw-matsuyama-top *::before, #hw-matsuyama-top *::after { box-sizing: border-box; }
+
+/* --- 2. ロゴ配置エリア --- */
+.hw-header-logo-area {
+    text-align: left;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1f5f9;
+}
+.hw-header-logo-area img {
+    height: 50px; /* お手持ちのロゴに合わせて調整してください */
+    width: auto;
+}
+
+/* --- 3. 新FVエリア（左：スライダー / 右：変則リッチメニュー） --- */
+.hw-fv-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* 左側：スライダーエリア（幅約60%） */
+.hw-fv-left {
+    flex: 6;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f4f6f9;
+    aspect-ratio: 16 / 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.hw-slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+.hw-slide.active { opacity: 1; z-index: 1; }
+/* インジケータ（ドット） */
+.hw-slider-indicators {
+    position: absolute;
+    bottom: 12px; left: 0; width: 100%;
+    display: flex; justify-content: center; gap: 8px; z-index: 2;
+}
+.hw-indicator {
+    width: 12px; height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 50%; cursor: pointer; transition: all 0.3s;
+}
+.hw-indicator.active {
+    background-color: #ffffff; box-shadow: 0 0 5px rgba(0,0,0,0.3); transform: scale(1.2);
+}
+
+/* 右側：リッチメニューエリア（幅約40%） */
+.hw-fv-right {
+    flex: 4;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+.hw-rich-tile {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border-radius: 10px; padding: 10px; text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.hw-rich-tile:hover { transform: translateY(-2px); box-shadow: 0 5px 12px rgba(0,0,0,0.1); }
+.hw-rich-icon { font-size: 32px; margin-bottom: 5px; line-height: 1; }
+.hw-rich-text { font-size: 13px; font-weight: bold; line-height: 1.2; }
+
+/* 長方形タイル（数字でみる松山） */
+.hw-rich-wide {
+    grid-column: span 2; /* 横2マス分を使う */
+    flex-direction: row;
+    justify-content: space-evenly;
+    background: linear-gradient(135deg, #1a365d, #2b6cb0);
+    color: #ffffff;
+    border: none;
+}
+.hw-wide-data-box { text-align: center; }
+.hw-wide-title { font-size: 12px; margin-bottom: 2px; color: #bee3f8; }
+.hw-wide-number { font-size: 26px; font-weight: bold; font-family: Arial, sans-serif; letter-spacing: 1px; }
+.hw-wide-unit { font-size: 14px; font-weight: normal; }
+.hw-wide-sub { font-size: 10px; color: #90cdf4; display: block; margin-top: 2px; }
+
+/* リッチメニュー上段の色分け */
+.rt-guide { background: linear-gradient(135deg, #ebf8ff, #bee3f8); color: #2b6cb0; border: 1px solid #90cdf4; }
+.rt-event { background: linear-gradient(135deg, #fffaf0, #feebc8); color: #c05621; border: 1px solid #fbd38d; }
+
+/* スマホ表示の調整（FVエリアを縦積みに） */
+@media screen and (max-width: 768px) {
+    .hw-fv-container { flex-direction: column; }
+    .hw-fv-left, .hw-fv-right { flex: none; width: 100%; }
+    .hw-fv-left { aspect-ratio: 16 / 9; }
+    .hw-rich-icon { font-size: 28px; }
+    .hw-rich-text { font-size: 14px; }
+}
+
+/* --- 4. 目的別の大入り口（2大看板） --- */
+.hw-door-wrapper {
+    background-color: #f8fafc; border-radius: 10px; padding: 20px; margin-bottom: 35px; text-align: center;
+}
+.hw-door-title { font-size: 18px; font-weight: bold; color: #1a365d; margin: 0 0 15px 0; }
+.hw-door-btns { display: flex; gap: 15px; justify-content: center; }
+.hw-door-btn {
+    flex: 1; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 16px;
+    display: flex; flex-direction: column; align-items: center; transition: transform 0.2s, box-shadow 0.2s;
+}
+.hw-door-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+.hw-door-personal { background-color: #ebf8ff; color: #2b6cb0; border: 2px solid #90cdf4; }
+.hw-door-business { background-color: #edf2f7; color: #2d3748; border: 2px solid #a0aec0; }
+.hw-door-icon { font-size: 28px; margin-bottom: 5px; }
+@media screen and (max-width: 768px) { .hw-door-btns { flex-direction: column; } }
+
+/* --- 5. お知らせ・イベント（フィルタータブ） --- */
+.hw-news-container { margin-bottom: 40px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+.hw-news-tabs { display: flex; background-color: #f1f5f9; border-bottom: 1px solid #e2e8f0; }
+.hw-news-tab { flex: 1; padding: 12px 0; border: none; background: none; font-size: 15px; font-weight: bold; color: #64748b; cursor: pointer; transition: all 0.2s; }
+.hw-news-tab.active { background-color: #ffffff; color: #2b6cb0; border-bottom: 3px solid #2b6cb0; }
+.hw-news-list { padding: 0; margin: 0; list-style: none; max-height: 250px; overflow-y: auto; background-color: #ffffff; }
+.hw-news-item { display: flex; align-items: center; padding: 12px 15px; border-bottom: 1px solid #f1f5f9; color: #333; font-size: 14px; transition: background-color 0.2s; }
+.hw-news-item:hover { background-color: #f8fafc; }
+.hw-news-date { color: #64748b; font-size: 13px; min-width: 90px; }
+.hw-news-badge { font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; color: #fff; margin-right: 10px; white-space: nowrap; }
+.badge-news { background-color: #2b6cb0; }
+.badge-event { background-color: #e53e3e; }
+.hw-news-text { flex-grow: 1; line-height: 1.4; }
+
+/* --- 6. メニューの基本タイルレイアウト --- */
+.hw-section-title { font-size: 22px; font-weight: bold; padding-bottom: 10px; margin: 40px 0 20px 0; border-bottom: 3px solid #cbd5e0; }
+.hw-group-title { font-size: 16px; font-weight: bold; margin: 0 0 12px 0; padding-left: 10px; border-left: 4px solid #1a365d; color: #2d3748; }
+.hw-tile-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 25px; }
+.hw-tile-btn {
+    background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    transition: all 0.2s ease; width: calc((100% - 24px) / 3); display: flex; flex-direction: column;
+}
+.hw-tile-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-color: #a0aec0; }
+.hw-btn-main-link { padding: 18px 12px; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.hw-btn-icon-wrap { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 10px; }
+.hw-btn-text-main { font-size: 14px; font-weight: bold; line-height: 1.3; margin-bottom: 6px; }
+.hw-btn-text-sub { font-size: 11px; color: #718096; line-height: 1.3; }
+.hw-badge-important { background-color: #e53e3e; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 3px; margin-bottom: 5px; }
+
+/* 子リンク内包型（企業向け） */
+.hw-sublink-area { background-color: #f8fafc; border-top: 1px dotted #cbd5e0; padding: 10px; text-align: left; border-radius: 0 0 8px 8px; }
+.hw-sublink { display: block; font-size: 11px; color: #2b6cb0; margin-bottom: 6px; line-height: 1.3; font-weight: bold; }
+.hw-sublink:last-child { margin-bottom: 0; }
+.hw-sublink:hover { text-decoration: underline; color: #c53030; }
+
+/* カラーテーマ */
+.group-search .hw-btn-icon-wrap { background-color: #ebf8ff; color: #3182ce; }
+.group-search .hw-btn-text-main { color: #2b6cb0; }
+.group-support .hw-btn-icon-wrap { background-color: #f0fff4; color: #38a169; }
+.group-support .hw-btn-text-main { color: #276749; }
+.group-info .hw-btn-icon-wrap { background-color: #fffaf0; color: #dd6b20; }
+.group-info .hw-btn-text-main { color: #c05621; }
+.group-biz-1 .hw-btn-icon-wrap { background-color: #edf2f7; color: #2c5282; }
+.group-biz-1 .hw-btn-text-main { color: #1a365d; }
+.group-biz-2 .hw-btn-icon-wrap { background-color: #f1f5f9; color: #475569; }
+.group-biz-2 .hw-btn-text-main { color: #334155; }
+.group-biz-3 .hw-btn-icon-wrap { background-color: #e6fffa; color: #285e61; }
+.group-biz-3 .hw-btn-text-main { color: #234e52; }
+
+@media screen and (max-width: 768px) { .hw-tile-btn { width: calc((100% - 12px) / 2); } }
+@media screen and (max-width: 480px) { .hw-tile-btn { width: 100%; } }
+
+/* --- 7. お問い合わせ・SNSエリア（大型化） --- */
+.hw-footer-box { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 30px 20px; margin-top: 40px; }
+.hw-sns-flex { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
+.hw-sns-btn {
+    background-color: #fff; padding: 16px 28px; border-radius: 50px; font-size: 16px; font-weight: bold;
+    border: 2px solid #cbd5e0; color: #2d3748; display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.hw-sns-btn:hover { background-color: #f1f5f9; transform: translateY(-4px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: #a0aec0; }
+.hw-sns-icon { font-size: 24px; line-height: 1; }
+</style>
+
+<div id="hw-matsuyama-top">
+
+    <div class="hw-header-logo-area">
+        <a href="#"><img src="[[[id=002375953]]]" alt="ハローワーク松山 ロゴマーク"></a>
+    </div>
+
+    <div class="hw-fv-container">
+        <div class="hw-fv-left" id="hw-slider-wrap">
+            <img src="[[[id=002415841]]]" alt="ハローワーク松山 施設写真" class="hw-slide active">
+            <img src="[[[id=※カレンダー画像のIDを入れる]]]" alt="7月イベントカレンダー" class="hw-slide">
+            
+            <div class="hw-slider-indicators">
+                <span class="hw-indicator active" data-index="0"></span>
+                <span class="hw-indicator" data-index="1"></span>
+            </div>
+        </div>
+
+        <div class="hw-fv-right">
+            <a href="#※利用案内URL" class="hw-rich-tile rt-guide">
+                <span class="hw-rich-icon">🔰</span>
+                <span class="hw-rich-text">初めての<br>ご利用案内</span>
+            </a>
+            <a href="#※イベントURL" class="hw-rich-tile rt-event">
+                <span class="hw-rich-icon">📅</span>
+                <span class="hw-rich-text">今月の<br>イベント情報</span>
+            </a>
+            <a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/home.html" class="hw-rich-tile hw-rich-wide" target="_blank" title="愛媛労働局 労働市場月報より">
+                <div class="hw-wide-data-box">
+                    <div class="hw-wide-title">数字でみるハローワーク松山</div>
+                    <div class="hw-wide-number">503<span class="hw-wide-unit"> 件</span></div>
+                    <span class="hw-wide-sub">🎊 令和8年5月 月間就職件数</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="hw-door-wrapper">
+        <h2 class="hw-door-title">ご希望のメニューをお選びください</h2>
+        <div class="hw-door-btns">
+            <a href="#section-jobseeker" class="hw-door-btn hw-door-personal">
+                <span class="hw-door-icon">🔍</span>仕事をお探しの方（求職者）
+            </a>
+            <a href="#section-employer" class="hw-door-btn hw-door-business">
+                <span class="hw-door-icon">🏢</span>採用をお考えの企業の方（事業主）
+            </a>
+        </div>
+    </div>
+
+    <div class="hw-news-container">
+        <div class="hw-news-tabs">
+            <button class="hw-news-tab active" data-filter="all">すべて</button>
+            <button class="hw-news-tab" data-filter="news">お知らせ</button>
+            <button class="hw-news-tab" data-filter="event">イベント情報</button>
+        </div>
+        <div class="hw-news-list">
+            <a href="[[[id=002610389]]]" class="hw-news-item" data-category="news">
+                <span class="hw-news-date">2026.06.01</span>
+                <span class="hw-news-badge badge-news">お知らせ</span>
+                <span class="hw-news-text">就職支援セミナーの案内（6月・7月分）を掲載しました。</span>
+            </a>
+            <a href="[[[pageid=000295934]]]" class="hw-news-item" data-category="news">
+                <span class="hw-news-date">2026.05.07</span>
+                <span class="hw-news-badge badge-news">お知らせ</span>
+                <span class="hw-news-text">地場産業サポートチームができました！</span>
+            </a>
+            <a href="[[[id=002558176]]]" class="hw-news-item" data-category="event">
+                <span class="hw-news-date">2026.02.12</span>
+                <span class="hw-news-badge badge-event">イベント</span>
+                <span class="hw-news-text">【2/26.27】就職フェアを開催します！（ハローワーク松山）</span>
+            </a>
+            <a href="[[[id=002492999]]]" class="hw-news-item" data-category="event">
+                <span class="hw-news-date">2025.12.15</span>
+                <span class="hw-news-badge badge-event">イベント</span>
+                <span class="hw-news-text">【12/17】マザーズ就職応援セミナーを開催します！</span>
+            </a>
+        </div>
+    </div>
+
+    <h2 id="section-jobseeker" class="hw-section-title" style="color:#2b6cb0;">🔍 お仕事をお探しの方へ（個人）</h2>
+
+    <div class="hw-group-title">まずは自分で仕事を探す</div>
+    <div class="hw-tile-grid group-search">
+        <div class="hw-tile-btn">
+            <a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/newpage_01198.html/" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">🔍</div>
+                <span class="hw-btn-text-main">かんたん求人検索</span>
+                <span class="hw-btn-text-sub">松山市内・周辺の求人をエリア別検索</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://www.hellowork.mhlw.go.jp/" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">💻</div>
+                <span class="hw-btn-text-main">インターネットサービス</span>
+                <span class="hw-btn-text-sub">全国検索・マイページログイン</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/hw/matsuyama.html/" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">📱</div>
+                <span class="hw-btn-text-main">ぽちっとジョブミル</span>
+                <span class="hw-btn-text-sub">愛媛労働局独自の手軽な求人ツール</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="hw-group-title">専門的な就職支援・相談窓口</div>
+    <div class="hw-tile-grid group-support">
+        <div class="hw-tile-btn">
+            <a href="#※専門窓口URLをいれる" class="hw-btn-main-link">
+                <div class="hw-btn-icon-wrap">👥</div>
+                <span class="hw-btn-text-main">専門窓口のご案内</span>
+                <span class="hw-btn-text-sub">マザーズ・新卒・シニアなどの個別窓口</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188045_00017.html" class="hw-btn-main-link" target="_blank">
+                <span class="hw-badge-important">重要施策</span>
+                <div class="hw-btn-icon-wrap">🏥</div>
+                <span class="hw-btn-text-main">医療・介護・保育・福祉<br>のお仕事案内</span>
+                <span class="hw-btn-text-sub">ささえる求人充足プロジェクト</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/hourei_seido_tetsuzuki/shokugyou_kunren/2016011401_00014.html/" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">🛠</div>
+                <span class="hw-btn-text-main">ハロートレーニング</span>
+                <span class="hw-btn-text-sub">働きながらスキルを身につける職業訓練</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="hw-group-title">来所前の準備・手続き・イベント</div>
+    <div class="hw-tile-grid group-info">
+        <div class="hw-tile-btn">
+            <a href="#※雇用保険案内URL" class="hw-btn-main-link">
+                <div class="hw-btn-icon-wrap">📄</div>
+                <span class="hw-btn-text-main">雇用保険（失業手当）<br>の手続き・持ち物</span>
+                <span class="hw-btn-text-sub">初めての申請でも安心。受給の流れ</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/hello-work-matsuyama_jst00010.html" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">📅</div>
+                <span class="hw-btn-text-main">セミナー・面接会情報</span>
+                <span class="hw-btn-text-sub">松山・プラザで開催されるイベント一覧</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://shigoto.mhlw.go.jp/User" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">🏷</div>
+                <span class="hw-btn-text-main">job tag</span>
+                <span class="hw-btn-text-sub">厚生労働省の適職診断・職種研究ツール</span>
+            </a>
+        </div>
+    </div>
+
+    <h2 id="section-employer" class="hw-section-title" style="color:#1a365d;">🏢 採用をお考えの企業の方へ（事業主）</h2>
+
+    <div class="hw-group-title">人材を採用する・採用力を高める</div>
+    <div class="hw-tile-grid group-biz-1">
+        <div class="hw-tile-btn">
+            <a href="[[[pageid=000295934]]]" class="hw-btn-main-link">
+                <div class="hw-btn-icon-wrap">🤝</div>
+                <span class="hw-btn-text-main">地場産業サポートチーム</span>
+                <span class="hw-btn-text-sub">企業の採用力向上を徹底支援します</span>
+            </a>
+            <div class="hw-sublink-area">
+                <a href="#※PRシートのURL" class="hw-sublink">👉 【毎月更新】業種別 事業所PRシート</a>
+            </div>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://www.hellowork.mhlw.go.jp/enterprise/ent_top.html" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">📝</div>
+                <span class="hw-btn-text-main">求人の申込み<br>マイページ開設</span>
+                <span class="hw-btn-text-sub">ネットからの求人登録・内容変更</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188045_00017.html#for-employers" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">🏥</div>
+                <span class="hw-btn-text-main">医療・介護・保育・福祉<br>の人材確保</span>
+                <span class="hw-btn-text-sub">重点分野の求人充足プロジェクト</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="hw-group-title">雇用保険の手続き・電子申請</div>
+    <div class="hw-tile-grid group-biz-2">
+        <div class="hw-tile-btn">
+            <a href="#※雇用保険適用窓口URL" class="hw-btn-main-link">
+                <div class="hw-btn-icon-wrap">🏢</div>
+                <span class="hw-btn-text-main">雇用保険の加入・脱退<br>（適用関係手続き）</span>
+                <span class="hw-btn-text-sub">必要な持ち物・窓口の受付時間</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/hourei_seido_tetsuzuki/koyou_hoken/tetsuzuki/20161212-001.html" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">💻</div>
+                <span class="hw-btn-text-main">労働保険の電子申請<br>（e-Gov等）</span>
+                <span class="hw-btn-text-sub">オフィスからネットで簡単申請</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/koyouhoken/index_00003.html" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">📖</div>
+                <span class="hw-btn-text-main">事業主向け 雇用保険<br>Q&A・手続きマニュアル</span>
+                <span class="hw-btn-text-sub">離職票の書き方や実務の疑問を解決</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="hw-group-title">助成金の活用・各種雇用報告</div>
+    <div class="hw-tile-grid group-biz-3">
+        <div class="hw-tile-btn">
+            <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/index_00060.html" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">💰</div>
+                <span class="hw-btn-text-main">各種助成金・給付金<br>のご案内</span>
+                <span class="hw-btn-text-sub">雇入れやキャリアアップ等に使える支援金</span>
+            </a>
+        </div>
+        <div class="hw-tile-btn with-sublinks">
+            <a href="#" class="hw-btn-main-link" style="pointer-events: none;">
+                <div class="hw-btn-icon-wrap">📊</div>
+                <span class="hw-btn-text-main">各種雇用状況の<br>報告・届出案内</span>
+                <span class="hw-btn-text-sub">法令で定められた報告先ページへ直行</span>
+            </a>
+            <div class="hw-sublink-area">
+                <a href="https://www.mhlw.go.jp/bunya/koyou/koureisha-koyou/koureisha-koyou.html" class="hw-sublink" target="_blank">👉 高年齢者 雇用状況報告（6月）</a>
+                <a href="https://www.mhlw.go.jp/bunya/koyou/koureisha-koyou/shougaisha-koyou.html" class="hw-sublink" target="_blank">👉 障害者 雇用状況報告（6月）</a>
+                <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/gaikokujin/todokede/index.html" class="hw-sublink" target="_blank">👉 外国人 雇用状況の届出（随時）</a>
+            </div>
+        </div>
+        <div class="hw-tile-btn">
+            <a href="https://www.mhlw.go.jp/www2/topics/topics/saiyo/saiyo.htm" class="hw-btn-main-link" target="_blank">
+                <div class="hw-btn-icon-wrap">🏅</div>
+                <span class="hw-btn-text-main">公正な採用選考と<br>企業認定制度（くるみん等）</span>
+                <span class="hw-btn-text-sub">面接のガイドラインや認定企業のPR</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="hw-footer-box">
+        <h3 style="text-align: center; font-size: 18px; margin-top: 0; color: #1a365d;">📱 ハローワーク松山 公式SNS</h3>
+        <p style="text-align: center; font-size: 13px; color: #718096; margin-bottom: 20px;">
+            最新の求人情報やイベント案内をスマホにお届けします！ぜひご登録ください。
+        </p>
+        
+        <div class="hw-sns-flex">
+            <a href="https://lin.ee/gdEBP5W7" class="hw-sns-btn" target="_blank">
+                <span class="hw-sns-icon" style="color:#00B900;">💬</span> 松山 公式LINE
+            </a>
+            <a href="https://lin.ee/AicErPM" class="hw-sns-btn" target="_blank">
+                <span class="hw-sns-icon" style="color:#00B900;">💬</span> プラザ松山 公式LINE
+            </a>
+            <a href="#" class="hw-sns-btn" target="_blank">
+                <span class="hw-sns-icon" style="color:#E1306C;">📷</span> 愛媛労働局 公式Instagram
+            </a>
+        </div>
+        
+        <div style="border-top: 1px solid #e2e8f0; padding-top: 15px; margin-top: 10px;">
+            <p style="text-align: center; font-size: 14px; font-weight: bold; color: #4a5568; margin: 0;">
+                ☎ お問い合わせ
+            </p>
+            <p style="text-align: center; font-size: 13px; color: #718096; margin: 5px 0 0 0;">
+                ハローワーク松山（089-917-8609） ｜ ハローワークプラザ松山（089-913-7401）
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. お知らせ・イベント タブ切り替え
+    const tabs = document.querySelectorAll(".hw-news-tab");
+    const items = document.querySelectorAll(".hw-news-item");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function() {
+            tabs.forEach(t => t.classList.remove("active"));
+            this.classList.add("active");
+            const filter = this.getAttribute("data-filter");
+
+            items.forEach(item => {
+                if (filter === "all" || item.getAttribute("data-category") === filter) {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    });
+
+    // 2. スライドショー（インジケータ連動）
+    const slides = document.querySelectorAll(".hw-slide");
+    const dots = document.querySelectorAll(".hw-indicator");
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.opacity = (i === index) ? "1" : "0";
+            slide.style.zIndex = (i === index) ? "1" : "0";
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+        });
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", function() {
+            clearInterval(slideInterval);
+            showSlide(index);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+    });
+
+    if (slides.length > 0) {
+        showSlide(0);
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+});
+</script>
