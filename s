@@ -1,0 +1,518 @@
+<div class="slideshow-container"><img alt="6" src="[[[id=002415841]]]" /><img alt="6" src="[[[id=002415844]]]" /></div>
+<style type="text/css">.slideshow-container {
+position: relative;
+width: 100%;
+aspect-ratio: 3 / 2; /* 幅と高さの比率（例：600x400） */
+overflow: hidden;
+}
+
+.slideshow-container img {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0;
+animation: fade 6s infinite;
+}
+
+.slideshow-container img:nth-child(1) {
+animation-delay: 0s;
+}
+
+.slideshow-container img:nth-child(2) {
+animation-delay: 3s;
+}
+
+@keyframes fade {
+0% { opacity: 0; }
+10% { opacity: 1; }
+40% { opacity: 1; }
+50% { opacity: 0; }
+100% { opacity: 0; }
+}
+
+/* 画面が狭い場合の調整（任意） */
+@media (max-width: 600px) {
+.slideshow-container {
+aspect-ratio: 4 / 3;
+}
+}
+</style>
+&nbsp;
+<div class="container">
+<div class="accordion">
+<div class="accordion-header">ご利用案内<br />
+<span class="toggle">＋</span></div>
+
+<div class="accordion-content">　　　　
+<ul class="m-list">
+<li><em>1）ご利用時間</em><br />
+◇ハローワーク松山：月曜日～金曜日　午前8時30分から午後5時15分（土曜日、日曜日、祝日、年末年始（12月29日～1月3日）は休み）<br />
+◇ハローワークプラザ松山：月曜日～金曜日　午前8時30分から午後5時15分<br />
+（第1・第3・第5土曜日、日曜日、祝日、年末年始（12月29日～1月3日）は休み）<br />
+※ハローワークプラザ松山については、月曜日と金曜日は午前8時30分～午後7時まで　第2・第4土曜日は午前10時～午後5時まで開庁しています（祝日と重なる場合は業務をしておりませんのでご了承ください）。</li>
+<li><em>2）求職申込・職業相談（職業紹介）について</em><br />
+職業相談には一定の時間がかかります。 また、初めての方につきましては求職申込みが必要です。求職申込書へのご記入やご相談を含めると、概ね30～40分<br />
+程度は見ておいていただければと思います。お時間に余裕を持ったご来所を<br />
+お願いいたします。<br />
+<strong class="m-txt--notice">職業紹介については先方(事業所)との連絡がつきにくい時間帯があります。<br />
+朝（8時30分～9時00分）・昼休みの時間帯（12時00分～13時00分）・夕方（17時00分過ぎ）などの時間帯をなるべく避け、閉庁15分前までのご利用をお勧めいたします。</strong></li>
+<li><em>3）駐車場について</em><br />
+駐車場の台数に限りがありますので、できる限り公共交通機関（バス等）を<br />
+ご利用ください。 また、庁舎前の道路は慢性的に渋滞が発生するため、お車で来られる際は左折入庫・左折出庫にご協力ください。加えて、周辺にお住まいの方や近隣施設への迷惑、緊急車両への影響もありますので、周辺道路や近隣住宅・会社・施設等への違法駐車は絶対におやめください。<br />
+皆さまのご理解、ご協力をお願いいたします。<br />
+<strong class="m-txt--notice">※千舟町のハローワークプラザ松山には駐車場がございません。ご不便をおかけしますが、公共交通機関を利用してのご来所をお願いいたします。</strong></li>
+</ul>
+</div>
+<strong class="m-txt--notice"><script>
+document.querySelectorAll('.accordion-header').forEach(header => {
+header.addEventListener('click', () => {
+document.querySelectorAll('.accordion-content').forEach(content => {
+if (content !== header.nextElementSibling) {
+content.style.display = 'none';
+content.previousElementSibling.querySelector('.toggle').textContent = '＋';
+}
+});
+const content = header.nextElementSibling;
+const toggle = header.querySelector('.toggle');
+if (content.style.display === 'block') {
+content.style.display = 'none';
+toggle.textContent = '＋';
+} else {
+content.style.display = 'block';
+toggle.textContent = '－';
+}
+});
+});
+
+document.querySelectorAll('.sub-header').forEach(sub => {
+sub.addEventListener('click', () => {
+const content = sub.nextElementSibling;
+const toggle = sub.querySelector('.toggle');
+if (content.style.display === 'block') {
+content.style.display = 'none';
+toggle.textContent = '＋';
+} else {
+content.style.display = 'block';
+toggle.textContent = '－';
+}
+});
+});
+</script></strong></div>
+
+<h4 class="m-hdgLv4__hdg"><strong class="m-txt--notice">ハローワーク松山をご利用の方は、<br />
+左折入庫・左折出庫にご協力をお願いいたします。</strong><br />
+<br />
+<br />
+ハローワーク再就職支援メニュー</h4>
+
+<h4 class="m-hdgLv4__hdg"><a href="https://www.hellowork.mhlw.go.jp/" target="_blank"><img alt="" src="[[[id=002730392]]]" style="width: 130px; height: 91px;" /></a>　<a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/pochittojobumiru.html" target="_blank"><img alt="" src="[[[id=002730393]]]" style="width: 130px; height: 91px;" /></a>　<img alt="" src="[[[id=002730394]]]" style="width: 130px; height: 91px;" />　<a href="https://shigoto.mhlw.go.jp/User" target="_blank"><img alt="" src="[[[id=002730397]]]" style="width: 130px; height: 91px;" /></a><br />
+<img alt="" src="[[[id=002730399]]]" style="width: 130px; height: 91px;" />　<img alt="" src="[[[id=002730400]]]" style="width: 130px; height: 91px;" />　<img alt="" src="[[[id=002730434]]]" style="width: 130px; height: 91px;" />　<img alt="" src="[[[id=002730435]]]" style="width: 130px; height: 91px;" /><br />
+<a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/hello-work-matsuyama_jst00010.html" target="_blank"><img alt="" src="[[[id=002730410]]]" style="width: 130px; height: 91px;" /></a>　<br />
+&nbsp;</h4>
+
+<h4 class="m-hdgLv4__hdg">公式LINEのご案内</h4>
+
+<div style="display:flex; gap:40px; align-items:flex-start; flex-wrap:wrap;">
+<div>
+<p class="m-txtXL"><em><a href="[[[id=002441016]]]" target="_blank">ハローワーク松山</a></em><br />
+<a href="https://lin.ee/gdEBP5W7"><img alt="友だち追加" border="0" height="36" src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" /> </a></p>
+
+<div><em>ハローワーク松山の<br />
+LINE登録はこちらから♪</em></div>
+</div>
+
+<div>
+<p class="m-txtXL"><em><a href="[[[id=002441166]]]" target="_blank">ハローワークプラザ松山</a></em><br />
+<a href="https://lin.ee/AicErPM"><img alt="友だち追加" border="0" height="36" src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" /> </a></p>
+
+<div><em>ハローワークプラザ松山の<br />
+LINE登録はこちらから♪</em></div>
+</div>
+</div>
+
+<h2 class="m-hdgLv2__hdg" style="font-size: 29.712px;"><img alt="" src="[[[id=002441068]]]" style="width: 450px; height: 300px;" /></h2>
+</div>
+<title></title>
+<strong class="m-txt--notice"><a href="https://www.hellowork.mhlw.go.jp/" target="_blank">
+<style type="text/css">body {
+background-color: #ffffff;
+font-family: "Helvetica", "Arial", sans-serif;
+padding: 20px;
+}
+
+.info-section {
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 6px;
+margin-bottom: 24px;
+max-width: 600px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.info-title {
+color: #ffffff;
+font-weight: bold;
+padding: 12px 16px;
+border-bottom: 2px solid #ffffff;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+font-size: 18px;
+}
+
+.event-title {
+background-color: #0078D7; /* 青 */
+}
+
+.stats-title {
+background-color: #228B22; /* 深めの黄緑（ForestGreen） */
+}
+
+.info-list {
+list-style: none;
+padding: 16px;
+margin: 0;
+max-height: 300px;
+overflow-y: auto;
+}
+
+.info-list li {
+margin-bottom: 16px;
+border-bottom: 1px solid #eee;
+padding-bottom: 8px;
+}
+
+.date {
+font-weight: bold;
+color: #0078D7;
+}
+
+.description {
+margin-top: 4px;
+color: #333;
+}
+</style>
+</a> </strong>
+<div class="info-section">
+<div class="info-title stats-title">お知らせ</div>
+&nbsp;
+
+<ul class="info-list">
+<li>
+<div class="date">2026年7月3日</div>
+
+<div class="description"><a href="[[[pageid=000290174]]]" target="_blank">「かんたん求人検索」をリニューアルしました！</a></div>
+</li>
+<li>
+<div class="date">2026年7月1日</div>
+
+<div class="description"><a href="[[[id=002723952]]]">就職支援セミナーの案内（8月分）を掲載しました。</a></div>
+</li>
+<li>
+<div class="date">2026年7月1日</div>
+
+<div class="description"><a href="[[[id=002723794]]]">ハローワーク松山・ハローワークプラザ松山のイベントカレンダー（7月分）を掲載しました。</a></div>
+</li>
+<li>
+<div class="date">2026年6月1日</div>
+
+<div class="description"><a href="[[[id=002723779]]]">就職支援セミナーの案内（6月・7月分）を掲載しました。</a></div>
+</li>
+<li>
+<div class="date">2026年6月1日</div>
+
+<div class="description"><a href="[[[id=002723800]]]" target="_blank">ハローワーク松山・ハローワークプラザ松山のイベントカレンダー（6月分）を掲載しました。</a></div>
+</li>
+<li>
+<div class="date">2026年5月7日</div>
+
+<div class="description"><a href="[[[pageid=000295934]]]">地場産業サポートチームができました！</a></div>
+</li>
+<li>
+<div class="date">2026年5月1日</div>
+
+<div class="description"><a href="[[[id=002644794]]]">就職支援セミナーの案内（5月分）を掲載しました。</a></div>
+</li>
+<li>
+<div class="date">2026年5月1日</div>
+
+<div class="description"><a href="[[[id=002644814]]]">ハローワーク松山・ハローワークプラザ松山のイベントカレンダー（5月分）を掲載しました。</a></div>
+</li>
+<li>
+<div class="date">2026年3月24日</div>
+
+<div class="description">就職支援セミナーの案内（4月分）を掲載しました。</div>
+</li>
+<li>
+<div class="date">2026年3月1日</div>
+
+<div class="description">ハローワーク松山・ハローワークプラザ松山のイベントカレンダー（3月分）を掲載しました。</div>
+</li>
+<li>
+<div class="date">2026年2月12日</div>
+
+<div class="description">イベント情報を更新しました。</div>
+</li>
+<li>
+<div class="date">2026年2月1日</div>
+
+<div class="description">ハローワーク松山・ハローワークプラザ松山のイベントカレンダー（2月分）を掲載しました。</div>
+</li>
+<li>
+<div class="date">2026年1月26日</div>
+
+<div class="description">ハローワーク松山・ハローワークプラザ松山　公式LINEの友だち追加ボタンを設置しました！</div>
+</li>
+<li>
+<div class="date">2026年1月6日</div>
+
+<div class="description">イベント情報を更新しました。</div>
+</li>
+<li>
+<div class="date">2025年1月1日</div>
+
+<div class="description">ハローワーク松山・ハローワークプラザ松山のイベントカレンダー（1月分）を掲載しました。</div>
+</li>
+<li>
+<div class="date">2025年12月15日</div>
+
+<div class="description">イベント情報を更新しました。</div>
+</li>
+<li>
+<div class="date">2025年12月1日</div>
+
+<div class="description">ハローワーク松山・ハローワークプラザ松山のイベントカレンダー（12月分）を掲載しました。</div>
+</li>
+<li>
+<div class="date">2025年11月1日</div>
+
+<div class="description">ハローワーク松山・ハローワークプラザ松山のイベントカレンダー（11月分）を掲載しました。</div>
+</li>
+<li>
+<div class="date">2025年10月15日　<a href="[[[id=002375912]]]" style="font-family: &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 700; background-color: rgb(255, 255, 255);" target="_blank"><img alt="" src="[[[id=002375953]]]" style="cursor: default; width: 57px;" /></a><img alt="" src="[[[id=002392104]]]" style="cursor: default; color: rgb(0, 120, 215); font-family: &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 700; background-color: rgb(255, 255, 255); width: 57px;" /><img alt="" src="[[[id=002375941]]]" style="cursor: default; font-family: &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 700; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); width: 57px;" /></div>
+
+<div class="description">ハローワーク松山・ハローワークプラザ松山の公式ホームページを開設しました！！</div>
+</li>
+</ul>
+</div>
+
+<div class="info-section">
+<div class="info-title event-title">イベント情報</div>
+
+<ul class="info-list">
+<li>
+<p class="m-txtM"><span style="color: rgb(0, 120, 215); font-weight: 700;">2026年2月12日　</span><br />
+<a href="[[[id=002558176]]]" target="_blank">【2/26.27】就職フェアを開催します！（ハローワーク松山）</a></p>
+</li>
+<li>
+<p class="m-txtM"><span style="color: rgb(0, 120, 215); font-weight: 700;">2026年1月6日　</span><br />
+【2/9】障害者就職面接説明会を開催します！（ハローワーク松山）</p>
+</li>
+<li>
+<p class="m-txtM"><span style="color: rgb(0, 120, 215); font-weight: 700;">2025年12月15日　</span><br />
+<a href="[[[id=002492998]]]" target="_blank">【12/22】就活応援セミナーを開催します！（ハローワークプラザ松山） </a></p>
+</li>
+<li>
+<p class="m-txtM"><span style="color: rgb(0, 120, 215); font-weight: 700;">2025年12月15日　</span><br />
+<a href="[[[id=002492999]]]" target="_blank">【12/17】マザーズ就職応援セミナーを開催します！（ハローワークプラザ松山）</a></p>
+</li>
+<li>
+<p class="m-txtM"><span style="color: rgb(0, 120, 215); font-weight: 700;">2025年12月1日　</span><br />
+<a href="[[[pageid=000283351]]]">【12/8】合同会社説明会を開催します！</a></p>
+
+<p class="m-txtM"><span style="color: rgb(0, 120, 215); font-weight: 700;">2025年11月17日　</span></p>
+
+<div class="description"><a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/news_topics/hellowork_oshirase/20251127.html">【11/27,11/28】就職フェア（合同企業説明会・面接会）を開催します！</a></div>
+</li>
+</ul>
+</div>
+<style type="text/css">.scroll-box {
+width: 97.7%; /* スマホでも可変 */
+max-width: 600px; /* 最大幅を設定 */
+height: 200px; /* 固定の高さ */
+border: 2px solid #333;
+padding: 10px;
+overflow: auto; /* スクロール可能にする */
+background-color: #FFFFF0;
+}
+</style>
+<style type="text/css">body {
+font-family: "Segoe UI", sans-serif;
+background-color: #ffffff;
+margin: 0;
+padding: 20px;
+}
+
+.container {
+max-width: 600px;
+margin: left;
+}
+
+.accordion {
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+margin-bottom: 10px;
+overflow: hidden;
+}
+
+.accordion-header {
+padding: 15px 20px;
+cursor: pointer;
+background-color: #e3eaf5;
+font-weight: bold;
+font-size: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.accordion-header:hover {
+background-color: #d0d9ec;
+}
+
+.accordion-content {
+display: none;
+padding: 10px 20px;
+background-color: #fff;
+font-size: 15px;
+}
+
+.accordion-content a {
+display: block;
+margin-bottom: 5px;
+color: #3366cc;
+text-decoration: none;
+}
+
+.accordion-content a:hover {
+text-decoration: underline;
+}
+
+.sub-accordion {
+margin-top: 10px;
+}
+
+.sub-header {
+padding: 10px;
+background-color: #f0f4fa;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-radius: 4px;
+margin-bottom: 5px;
+}
+
+.sub-header:hover {
+background-color: #e0e7f2;
+}
+
+.sub-content {
+display: none;
+padding: 10px 20px;
+background-color: #fafcff;
+border-left: 2px solid #c0d3ec;
+margin-bottom: 10px;
+}
+.button-36 {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 97.7%; /* ← ここを変更 */
+margin: 0 auto;
+max-width: 300px; /* ← 最大幅を指定 */
+box-sizing: border-box; /* ← 追加 */
+padding: .8em 1em; /* ← パディングを少し調整 */
+border: 1px solid #2589d0;
+border-radius: 5px;
+background-color: #fff;
+color: #2589d0;
+font-size: 1em;
+text-align: center; /*← テキストを中央*/
+}
+
+.button-36:hover {
+border: none;
+background-color: #2589d0;
+color: #fff;
+font-weight: 600;
+text-align: center;
+}
+
+.responsive-hr {
+width: 100%;
+max-width: 600px;
+margin: 20px auto;
+border: none;
+border-top: 1px solid #ccc;
+}
+</style>
+<h3 class="m-hdgLv3__hdg">☎お問い合わせ先</h3>
+
+<div>
+<p class="m-txtXL"><em>ハローワーク松山（松山公共職業安定所）<br />
+<span style="font-size: 16px;">〒791-8522　松山市六軒家町3-27　松山労働総合庁舎1階～3階　　 </span> <a href="https://maps.app.goo.gl/rH8U2W5QK5GwczM27" target="_blank"><u style="font-size: 16px;">MAP</u></a><br />
+<span style="font-size: 16px;">管轄区域：松山市、伊予市、東温市、伊予郡、上浮穴郡</span></em><br />
+<br />
+<span style="font-size: 16px;">電話番号：</span><em style="font-size: 16px;">089-917-8609</em><span style="font-size: 16px;">　　　自動音声でご案内いたします　　</span><a href="https://jsite.mhlw.go.jp/ehime-roudoukyoku/content/contents/002365467.pdf" style="font-size: 16px;" target="_blank"><u>自動音声案内</u></a><br />
+<br />
+<span style="font-size: 16px;">1階<br />
+　</span><span style="font-size: 16px;">職業相談第一部門、第二部門<br />
+　</span><span style="font-size: 16px;">職業相談第三部門（障害者関係）</span><br />
+<br />
+<span style="font-size: 16px;">2階<br />
+　</span><span style="font-size: 16px;">雇用保険給付課<br />
+　</span><span style="font-size: 16px;">雇用保険適用課<br />
+　</span><span style="font-size: 16px;">求人・雇用開発部門<br />
+　</span><span style="font-size: 16px;">職業相談第四部門（職業訓練コーナー）</span><br />
+<br />
+<span style="font-size: 16px;">3階<br />
+　</span><span style="font-size: 16px;">庶務課</span><br />
+<br />
+<br />
+<em style="font-size: 20.576px;">ハローワークプラザ松山</em><br />
+<em style="font-size: 20.576px;"><span style="font-size: 16px;">〒790-0011　松山市千舟町4-4-1　グランディア千舟2階　　 </span> <a href="https://maps.app.goo.gl/uHGMufrjyacFMTLX6" target="_blank"><u style="font-size: 16px;">MAP</u></a></em><br />
+<br />
+<span style="font-size: 16px;">電話番号：</span><em style="font-size: 16px;">089-913-7401</em><br />
+<br />
+<span style="font-size: 16px;">◇一般職業紹介窓口</span><span style="font-size: 16px;">　<br />
+　電話番号：089-913-7402</span><br />
+<br />
+<span style="font-size: 16px;">◇まつやまマザーズコーナー</span><br />
+<span style="font-size: 16px;">　電話番号：089-913-7410</span><br />
+<br />
+<span style="font-size: 16px;">◇愛媛わかものハローワーク</span><br />
+<span style="font-size: 16px;">　電話番号：089-913-7404</span><br />
+<br />
+<span style="font-size: 16px;">◇愛媛新卒応援ハローワーク</span><br />
+<span style="font-size: 16px;">　電話番号（中・高卒）：089-913-7403　（大卒等）：089-913-7416</span></p>
+
+<p class="m-txtM">&nbsp;</p>
+
+<h3 class="m-hdgLv3__hdg">ハローワーク松山シンボルマークについて</h3>
+
+<p class="m-txtM"><a href="[[[id=002442265]]]" target="_blank">使用規定はこちらからご確認ください。</a></p>
+</div>
+<strong class="m-txt--notice"> </strong>
+
+
+
+添付いただいた画像（手書きのメモや書類など）の文字をそのまま書き起こしました。
+内容ごとに整理し、 scannable（見やすさ重視）な形にレイアウトを整えています。システム入力や復命書の作成、今後の実務にお役立てください。
+## 1. 訪問指導記録・ヒアリングメモ（手書き箇所の書き起こし）
+### 【事業所基本情報】
+ * **事業所名:** 株式会社 MST（エムエスティー）
+ * **所在地:** 松山市高砂町3丁目7-7
+ * **指導実施年月日:** 2026年5月18日
+ * **指導担当者:** 寒川（松山所）、横田アドバイザー（JEED）
+ * **指導区分:** 高・法令履行指導以外
+ * **指導方法:** 訪問
+ * **対応者役職・氏名:** 常務取締役　門田 泰久 氏
+### 【ヒアリング・指導内容詳細】
+ * **法改正（努力義務）への理解:** * 70歳までの就業確保措置（高年齢者雇用安定法に基づく努力義務）の趣旨については、今回の説明および資料の手交により十分に理解したとの回答があった。
+ * **現場の現状と課題:**
+   * 現在、特に**現場職における若手人材の採用・確保が極めて厳しい状況**にある。
+   * 
